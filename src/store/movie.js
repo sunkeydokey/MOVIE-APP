@@ -22,10 +22,14 @@ export const searchMovies = async (page) => {
     store.state.message = '';
   }
   try {
-    const res = await fetch(
-      `https://omdbapi.com?apikey=${process.env.MOVIE_KEY}&s=${store.state.searchText}&page=${page}`
-    );
-    const { Search, totalResults, Response, Error } = await res.json();
+    const res = await fetch('/api/movie', {
+      method: 'POST',
+      body: JSON.stringify({
+        title: store.state.searchText,
+        page,
+      }),
+    });
+    const { Response, Search, totalResults, Error } = await res.json();
     if (Response === 'True') {
       store.state.movies = [...store.state.movies, ...Search];
       store.state.pageMax = Math.ceil(Number(totalResults) / 10);
@@ -38,12 +42,14 @@ export const searchMovies = async (page) => {
     store.state.loading = false;
   }
 };
-
 export const getMovieDetails = async (id) => {
   try {
-    const res = await fetch(
-      `https://omdbapi.com?apikey=${process.env.MOVIE_KEY}&i=${id}&plot=full`
-    );
+    const res = await fetch('/api/movie', {
+      method: 'POST',
+      body: JSON.stringify({
+        id,
+      }),
+    });
     store.state.movie = await res.json();
   } catch (error) {
     console.log('getMovieDetails error:', error);
