@@ -1,3 +1,4 @@
+/* Common */
 html {
   --color-black: #0e111b;
   --color-white: #fff;
@@ -10,7 +11,6 @@ html {
   --color-hover: #f86a05;
   --color-area: #1c212e;
 }
-
 body {
   background-color: var(--color-black);
   font-family: 'Roboto', sans-serif;
@@ -18,89 +18,7 @@ body {
   color: var(--color-white);
 }
 
-header {
-  padding: 20px 40px;
-  background-color: rgba(14, 17, 27, 0.9);
-  position: sticky;
-  top: 0;
-  z-index: 9;
-  display: flex;
-  align-items: flex-end;
-  gap: 40px;
-}
-
-header .logo {
-  font-size: 20px;
-  font-family: 'Oswald', sans-serif;
-  color: var(--color-white-50);
-  text-decoration: none;
-}
-
-header .logo span {
-  color: var(--color-primary);
-}
-
-header nav ul {
-  display: flex;
-  gap: 14px;
-}
-
-header nav ul li a {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--color-white-50);
-  text-decoration: none;
-}
-
-header nav ul li a.active {
-  color: var(--color-primary);
-}
-
-header .user {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: var(--color-area);
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 40px;
-  margin: auto;
-  transition: 0.3s;
-}
-header .user:hover {
-  transform: scale(1.2);
-}
-
-header .user img {
-  width: 100%;
-}
-@media (max-width: 600px) {
-  header {
-    padding: 14px 20px;
-  }
-  header nav {
-    display: none;
-  }
-  header .user {
-    right: 20px;
-  }
-}
-
-footer {
-  padding: 40px 40px 60px;
-  text-align: center;
-}
-
-footer a {
-  color: var(--color-white-20);
-  text-decoration: none;
-}
-footer a:hover {
-  text-decoration: underline;
-}
-
+/* Container */
 .container {
   max-width: 1120px;
   margin: 0 auto;
@@ -117,6 +35,7 @@ footer a:hover {
   }
 }
 
+/* Button */
 .btn {
   height: 50px;
   padding: 0 20px;
@@ -130,21 +49,19 @@ footer a:hover {
   cursor: pointer;
   transition: 0.3s;
 }
-
 .btn:hover {
   background-color: var(--color-hover);
 }
-
 .btn-primary {
   background-color: var(--color-primary);
   color: var(--color-black);
 }
-
 .btn-primary:hover {
   background-color: var(--color-hover);
   color: var(--color-white);
 }
 
+/* Default Loading Animation */
 .the-loader {
   width: 30px;
   height: 30px;
@@ -154,11 +71,9 @@ footer a:hover {
   border-radius: 50%;
   animation: loader 1s infinite linear;
 }
-
 .the-loader.hide {
   display: none;
 }
-
 @keyframes loader {
   0% {
     transform: rotate(0deg);
@@ -168,13 +83,13 @@ footer a:hover {
   }
 }
 
+/* Skeleton Loading Animation */
 .skeleton {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
   background-color: var(--color-area);
 }
-
 .skeleton::after {
   content: '';
   width: 100%;
@@ -200,21 +115,96 @@ footer a:hover {
   }
 }
 
+/* components/TheHeader */
+header {
+  padding: 20px 40px;
+  background-color: rgba(14, 17, 27, 0.9);
+  position: sticky;
+  top: 0;
+  z-index: 9;
+  display: flex;
+  align-items: flex-end;
+  gap: 40px;
+}
+header .logo {
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
+  color: var(--color-white-50);
+  text-decoration: none;
+}
+header .logo span {
+  color: var(--color-primary);
+}
+header nav ul {
+  display: flex;
+  gap: 14px;
+}
+header nav ul li a {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-white-50);
+  text-decoration: none;
+}
+header nav ul li a.active {
+  color: var(--color-primary);
+}
+header .user {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-area);
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 40px;
+  margin: auto;
+  transition: 0.3s;
+}
+header .user:hover {
+  transform: scale(1.2);
+}
+header .user img {
+  width: 100%;
+}
+@media (max-width: 600px) {
+  header {
+    padding: 14px 20px;
+  }
+  header nav {
+    display: none;
+  }
+  header .user {
+    right: 20px;
+  }
+}
+
+/* components/TheFooter */
+footer {
+  padding: 40px 40px 60px;
+  text-align: center;
+}
+footer a {
+  color: var(--color-white-20);
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* components/Headline */
 .headline {
   margin-bottom: 40px;
 }
-
 .headline h1 {
   font-family: 'Oswald', sans-serif;
   font-size: 80px;
   line-height: 1;
   margin-bottom: 40px;
 }
-
 .headline h1 span {
   color: var(--color-primary);
 }
-
 .headline p {
   color: var(--color-white-30);
 }
@@ -224,12 +214,12 @@ footer a:hover {
   }
 }
 
+/* components/Search */
 .search {
   display: flex;
   gap: 10px;
   margin-bottom: 30px;
 }
-
 .search input {
   flex-grow: 1;
   height: 50px;
@@ -241,28 +231,25 @@ footer a:hover {
   color: var(--color-white);
   background-color: var(--color-area);
 }
-
 .search input::placeholder {
   color: var(--color-white-30);
 }
-
 .search .btn {
   flex-grow: 1;
   max-width: 150px;
 }
 
+/* components/MovieList */
 .movie-list {
   padding: 20px;
   border-radius: 4px;
   background-color: var(--color-area);
 }
-
 .movie-list .message {
   color: var(--color-primary);
   font-size: 20px;
   text-align: center;
 }
-
 .movie-list .movies {
   display: flex;
   flex-wrap: wrap;
@@ -270,6 +257,7 @@ footer a:hover {
   gap: 20px;
 }
 
+/* components/MovieItem */
 .movies .movie {
   --width: 200px;
   width: var(--width);
@@ -280,7 +268,6 @@ footer a:hover {
   overflow: hidden;
   position: relative;
 }
-
 .movies .movie:hover::after {
   content: '';
   position: absolute;
@@ -290,8 +277,9 @@ footer a:hover {
   right: 0;
   border: 6px solid var(--color-primary);
 }
-
 .movies .movie .info {
+  background-color: rgba(14, 17, 27, 0.3);
+  backdrop-filter: blur(10px);
   width: 100%;
   padding: 14px;
   box-sizing: border-box;
@@ -300,18 +288,15 @@ footer a:hover {
   position: absolute;
   left: 0;
   bottom: 0;
-  background-color: rgba(14, 17, 27, 0.3);
-  backdrop-filter: blur(10px);
 }
-
 .movies .movie .info .year {
   color: var(--color-primary);
 }
-
 .movies .movie .info .title {
   color: var(--color-white);
 }
 
+/* components/MovieListMore */
 .view-more {
   width: 100%;
   max-width: 300px;
@@ -322,12 +307,12 @@ footer a:hover {
   display: none;
 }
 
+/* routes/Movie */
 .the-movie {
   color: var(--color-white-50);
   display: flex;
   gap: 70px;
 }
-
 .the-movie .poster {
   flex-shrink: 0;
   --width: 500px;
@@ -337,44 +322,36 @@ footer a:hover {
   background-size: cover;
   background-color: var(--color-area);
 }
-
 .the-movie .specs {
   flex-grow: 1;
 }
-
 .the-movie .title {
-  font-size: 70px;
   font-family: 'Oswald', sans-serif;
+  font-size: 70px;
   line-height: 1;
   color: var(--color-white);
   margin-bottom: 30px;
 }
-
 .the-movie .title.skeleton {
   height: 70px;
 }
-
 .the-movie .labels {
   color: var(--color-primary);
   margin-bottom: 20px;
 }
-
 .the-movie .labels.skeleton {
   height: 30px;
 }
-
 .the-movie .plot.skeleton {
   width: 80%;
   height: 400px;
 }
-
 .the-movie h3 {
-  font-size: 20px;
   font-family: 'Oswald', sans-serif;
+  font-size: 20px;
   color: var(--color-white);
   margin: 24px 0 6px;
 }
-
 @media (max-width: 1200px) {
   .the-movie {
     gap: 30px;
@@ -393,36 +370,34 @@ footer a:hover {
   }
 }
 
+/* routes/About */
 .about .photo {
   width: 230px;
   height: 230px;
   margin: 0 auto 20px;
-  border-radius: 40px;
+  border-radius: 10px;
   background-size: cover;
 }
-
 .about .name {
-  font-size: 40px;
   font-family: 'Oswald', sans-serif;
+  font-size: 40px;
   margin-bottom: 20px;
 }
-
 .about p {
   line-height: 1.5;
   text-align: center;
   margin-bottom: 4px;
 }
-
 .about a {
   color: var(--color-primary);
   text-decoration: none;
 }
-
 .about a:hover {
   text-decoration: underline;
 }
 
-.not-found {
+/* routes/NotFound */
+.not-found h1 {
   font-size: 70px;
   font-weight: 700;
   color: var(--color-white-10);
