@@ -1,6 +1,15 @@
 import { Component } from '../core/movieApp';
 
+interface State {
+  [key: string]: unknown;
+  menus: {
+    name: string;
+    href: string;
+  }[];
+}
+
 export default class TheHeader extends Component {
+  public state!: State;
   constructor() {
     super({
       tagName: 'header',
@@ -27,7 +36,9 @@ export default class TheHeader extends Component {
   }
   render() {
     this.el.innerHTML = /* html */ `
-      <a href="#/" class="logo">
+      <a
+        href="#/"
+        class="logo">
         <span>OMDbAPI</span>.COM
       </a>
       <nav>
@@ -38,20 +49,19 @@ export default class TheHeader extends Component {
               const hash = location.hash.split('?')[0];
               const isActive = href === hash;
               return /* html */ `
-            <li>
-              <a 
-                class="${isActive ? 'active' : ''}" 
-                href="${menu.href}">
-                ${menu.name}
-              </a>
-            </li>
-            `;
+              <li>
+                <a
+                  class="${isActive ? 'active' : ''}"
+                  href="${menu.href}">
+                  ${menu.name}
+                </a>
+              </li>`;
             })
             .join('')}
         </ul>
       </nav>
       <a href="#/about" class="user">
-        <img src="https://cdn0.iconfinder.com/data/icons/doodle-audio-video-game/91/Audio_-_Video_-_Game_01-256.png" alt="User" />
+        <img src="https://cdn0.iconfinder.com/data/icons/doodle-audio-video-game/91/Audio_-_Video_-_Game_01-256.png" alt="User">
       </a>
     `;
   }
